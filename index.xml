@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Math in the shell</title>
-    <link>https://asanchezyali.github.io/</link>
+    <link>https://mathintheshell.github.io/</link>
     <description>Recent content on Math in the shell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jul 2021 21:18:30 -0500</lastBuildDate><atom:link href="https://asanchezyali.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jul 2021 21:18:30 -0500</lastBuildDate><atom:link href="https://mathintheshell.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testpage</title>
-      <link>https://asanchezyali.github.io/post/testpage/</link>
+      <link>https://mathintheshell.github.io/post/testpage/</link>
       <pubDate>Sat, 17 Jul 2021 21:18:30 -0500</pubDate>
       
-      <guid>https://asanchezyali.github.io/post/testpage/</guid>
+      <guid>https://mathintheshell.github.io/post/testpage/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Aprendiendo de los datos</title>
-      <link>https://asanchezyali.github.io/post/2021-07-12machinelearning/</link>
+      <link>https://mathintheshell.github.io/post/2021-07-12machinelearning/</link>
       <pubDate>Mon, 12 Jul 2021 08:19:27 -0500</pubDate>
       
-      <guid>https://asanchezyali.github.io/post/2021-07-12machinelearning/</guid>
+      <guid>https://mathintheshell.github.io/post/2021-07-12machinelearning/</guid>
       <description>¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos y no a partir de definiciones matemáticas ideales.
 Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican el porqué de las cosas, pero si ofrecen resultados útiles para la práctica.</description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://asanchezyali.github.io/about/</link>
+      <link>https://mathintheshell.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://asanchezyali.github.io/about/</guid>
+      <guid>https://mathintheshell.github.io/about/</guid>
       <description>Etiam porta sem malesuada magna mollis euismod. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec id elit non mi porta gravida at eget metus. Donec sed odio dui.
 Donec sed odio dui. Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
 Nulla vitae elit libero, a pharetra augue.</description>
