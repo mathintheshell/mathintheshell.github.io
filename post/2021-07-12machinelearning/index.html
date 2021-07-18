@@ -25,11 +25,11 @@
 
 
 <title>Aprendiendo de los datos | Math in the shell</title>
-<meta name="description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática ideal de lo que son.
+<meta name="description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática de lo que son.
 Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica.">
 <meta property="og:title" content="Aprendiendo de los datos | Math in the shell">
 <meta property="og:site_name" content="Math in the shell">
-<meta property="og:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática ideal de lo que son.
+<meta property="og:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática de lo que son.
 Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica.">
 <meta property="og:url" content="https://mathintheshell.github.io/post/2021-07-12machinelearning/">
 <meta property="og:type" content="website">
@@ -43,7 +43,7 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
 	<meta name="twitter:site" content="@https://twitter.com/narative">
 	<meta name="twitter:creator" content="@https://twitter.com/narative">
 
-	<meta name="twitter:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática ideal de lo que son.
+	<meta name="twitter:description" content="¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática de lo que son.
 Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica.">
 <meta name="twitter:image" content="https://mathintheshell.github.io/images/ml-01.jpg">
 <meta property="article:published_time" content="2021-07-12T08:19:27-05:00">
@@ -291,7 +291,7 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
 
 <script src="/js/collapseAuthors.js"></script>
                     July 12, 2021
-                    • 3 min read
+                    • 4 min read
                 </div>
             </div>
         </header>
@@ -321,13 +321,13 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
 
 
     <article  id="articleContent" class="post-content" style="position:relative;">
-        <p>¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática ideal de lo que son.</p>
+        <p>¿Cómo aprendemos los humanos? En principio la mayoría del conocimiento humano proviene de nuestra experiencia con los objetos, es decir, aprendemos de los datos que obtenemos acerca de ellos y no a partir de algún tipo de definición matemática de lo que son.</p>
 <p>Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado que existe una amplia variedad de problemas que no se pueden resolver de forma analítica. En estas situaciones los datos nos permiten encontrar soluciones empíricas, que no necesariamente explican  el porqué de las cosas, pero si ofrecen resultados útiles para la práctica. Por esta razón, la capacidad de aprender a partir de los datos es una técnica de mucha importancia para todas las profesiones y disciplinas.</p>
-<p>En esta ocasión a tratar breve los principales elementos que constituyen <strong>el problema del aprendizaje a partir de los datos</strong>, para finalmente entender cómo las máquinas también pueden aprender.</p>
+<p>En esta ocasión se va a tratar brevemente los principales elementos que constituyen <strong>el problema del aprendizaje a partir de los datos</strong>, para finalmente entender cómo las máquinas también pueden aprender.</p>
 <h2 id="el-problema-del-aprendizaje">El problema del aprendizaje</h2>
 <p>El poder aprender a partir de los datos es un proceso que puede ser automatizado, es decir, se pueden elaborar algoritmos que realizan esta tarea. En este punto es importante entender que los algoritmos que aprenden de los datos solo tratan de encontrar la mejor solución para predecir resultados, y no necesariamente encuentran el porqué. Aquí los datos guían a los algoritmos para construir la fórmula que ofrece las mejores aplicaciones en el sentido práctico.</p>
-<p>En un sentido más matemático, el problema del aprendizaje puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde  $\mathcal{Z} \subset \mathcal{X} \times \mathcal{Y}$ y representa a una <strong>relación</strong> entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, <strong>la tarea de aprendizaje</strong> consiste en entender cuál es la estructura de $\mathcal{Z}$ a partir de una muestra de datos $S=(s_{i})_{i\in [m]}$ y alguna  <strong>función de perdida</strong> $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$, en donde $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ es el conjunto de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$.  Esta función se emplea principalmente para medir cúal es el <em>performance</em> de nuestro aprendizaje.</p>
-<p>Resolver esta tarea implica elegir un conjunto de <strong>hipótesis</strong> $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y construir un <strong>algoritmo de aprendizaje</strong>, es decir, un mapeo:</p>
+<p>En un sentido más matemático, el problema del aprendizaje se puede formular a partir de tres espacios medibles $\mathcal{X}$, $\mathcal{Y}$ y $\mathcal{Z}$, en donde  $\mathcal{Z} \subset \mathcal{X} \times \mathcal{Y}$ y representa a una <strong>relación</strong> entre los datos de $\mathcal{X}$ e $\mathcal{Y}$. En principio, <strong>la tarea de aprendizaje</strong> consiste en entender cuál es la estructura de $\mathcal{Z}$ a partir de una <strong>muestra de datos</strong> $S=(s_{i})_{i\in [m]}$ y alguna  <strong>función de perdida</strong> $\mathcal{L}: \mathcal{M}( \mathcal{X}, \mathcal{Y} )\times \mathcal{Z} \to \mathbb{R}$, en donde $\mathcal{M}( \mathcal{X}, \mathcal{Y} )$ es el conjunto de todas las funciones medibles de $\mathcal{X}$ a $\mathcal{Y}$.  La función $\mathcal{L}$ se emplea principalmente para medir cúal es el <em>performance</em> de nuestro aprendizaje.</p>
+<p>Resolver esta tarea implica hacer la elección de un conjunto de <strong>hipótesis</strong> $\mathcal{H} \subset \mathcal{M}( \mathcal{X}, \mathcal{Y} )$ y de la  construcción de un <strong>algoritmo de aprendizaje</strong>, es decir, un mapeo:</p>
 <p>\begin{equation}\tag{1}
 \mathcal{A}: \bigcup_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
 \end{equation}</p>
@@ -387,7 +387,7 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
                                 Una breve introducción al problema del aprendizaje a partir de los datos.
                             </p>
                             <div class="article-metadata">
-                                July 12, 2021 · 3 min read
+                                July 12, 2021 · 4 min read
                             </div>
                         </div>
                     </div>
