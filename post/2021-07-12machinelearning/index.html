@@ -291,7 +291,7 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
 
 <script src="/js/collapseAuthors.js"></script>
                     July 12, 2021
-                    • 6 min read
+                    • 7 min read
                 </div>
             </div>
         </header>
@@ -331,32 +331,42 @@ Esta habilidad de aprender de los datos, nos ha resultado bastante útil, dado q
 <p>\begin{equation}
 \mathcal{A}: \bigcup_{ m\in \mathbb{N} } \mathcal{Z}^{m} \to \mathcal{H}
 \end{equation}</p>
-<p>que a partir de una <strong>muestra de datos</strong> $S = (s_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un <strong>modelo</strong> $f_S = A(S)\in \mathcal{H}$ con «<em>buen comportamiento</em>» en $S$ y «<em>capacidad de generalizar</em>» para los datos desconocidos en $\mathcal{Z} \setminus S$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(f_S, z)$ e informalmente la capacidad de generalizar quiere decir que el comportamiento de $f_S$ en $z\in \mathcal{Z}\setminus S$ es similar a $z\in \mathcal{S}$.</p>
-<p>Como se puede apreciar la nociones de «<em>buen comportamiento</em>» y «<em>la capacidad de generalizar</em>» son bastante vagas, sin embargo, para tener una mejor idea de estas nociones, podemos centrar la atención en el comportamiento de función $\mathcal{L}$ sobre los conjuntos $\mathcal{H}\times S$ y $\mathcal{H}\times (Z\setminus S)$, en donde, $\mathcal{L}_{in} = \mathcal{L}|_{\mathcal{H}\times S}$ se define como <strong>la perdida en la muestra</strong> o simplemente <strong>la perdida empírica</strong> y $\mathcal{L}_{out} = \mathcal{L}|_{\mathcal{H}\times (Z \setminus S)}$ se define como <strong>la perdida fuera de la muestra</strong> o simplemente <strong>la perdida ideal</strong>. Ahora bien, si existiera el modelo $f^*\in \mathcal{H}$ tal que $f^*(\mathcal{X}) = \mathcal{Z}$, entonces la perdida empírica y la perdida ideal serían nulas, pues el modelo no presentaría ningún error en su tarea de predicción, aunque esto es lo esperado, en la práctica, en general, no es posible encontrar el modelo con las características de $f^*$, por lo que el esfuerzo se centra en una tarea menos ambiciosa que consiste en encontrar un modelo que mínimice el <strong>error empírico</strong>,</p>
-<p>\begin{equation}
-L_{in}(f) = \frac{1}{m}\sum_{i=1}^{m}\mathcal{L}_{in}(f, z_i),
+<p>que a partir de una <strong>muestra de datos</strong> $S = (s_i)_{i\in[m]}$ de cierto tamaño $m$ logre encontrar un <strong>modelo</strong> $h_S = A(S)\in \mathcal{H}$ con «<em>buen comportamiento</em>» en $S$ y «<em>capacidad de generalizar</em>» para los datos desconocidos en $\mathcal{Z} \setminus S$. Aquí, el buen comportamiento se mide via la función de perdida $\mathcal{L}$ y corresponde a la perdida $\mathcal{L}(h_S, z)$ e informalmente la capacidad de generalizar quiere decir que el comportamiento de $h_S$ en $z\in \mathcal{Z}\setminus S$ es similar a $z\in \mathcal{S}$.</p>
+<p>Como se puede apreciar la nociones de «<em>buen comportamiento</em>» y «<em>la capacidad de generalizar</em>» son bastante vagas, sin embargo, para tener una mejor idea de estas nociones, podemos centrar la atención en el comportamiento de función $\mathcal{L}$ sobre los conjuntos $\mathcal{H}\times S$ y $\mathcal{H}\times (Z\setminus S)$, en donde, $\mathcal{L}_{in} = \mathcal{L}|_{\mathcal{H}\times S}$ se define como <strong>la perdida en la muestra</strong> o simplemente <strong>la perdida empírica</strong> y $\mathcal{L}_{out} = \mathcal{L}|_{\mathcal{H}\times (Z \setminus S)}$ se define como <strong>la perdida fuera de la muestra</strong> o simplemente <strong>la perdida ideal</strong>. Ahora bien, si existiera el modelo $h^*\in \mathcal{H}$ tal que $h^*(\mathcal{X}) = \mathcal{Z}$, entonces la perdida empírica y la perdida ideal serían nulas, pues el modelo no presentaría ningún error en su tarea de predicción, aunque esto es lo esperado, en la práctica, en general, no es posible encontrar el modelo con las características de $h^*$. Otro enfoque para atacar este problema, es estudiarlo  a partir de las definiciones del la función de riesgo y el riesgo empirico, como veremos a continuación.</p>
+<p>La <strong>función de riesgo</strong> para una hipótesis $h\in \mathcal{H}$ con respecto a la distribucción de probabilidad $\mathcal{D}$ sobre $\mathcal{Z}$, como:</p>
+<p>\begin{equation}\tag{1}
+L_{D}(h) = \mathbb{E}_{z\sim \mathcal{D}}[\mathcal{L}(h, z)].
 \end{equation}</p>
-<p>es decir, para una muestra de datos $S = (s_i)_{i \in[m]}$ y un conjunto de hipótesis $\mathcal{H}$, se busca un modelo $f_s\in \mathcal{H}$ tal que:
-\begin{equation}\tag{1}
-f_s \in \operatorname*{argmin}_{f\in \mathcal{H}} L_{in}(f).
+<p>Observe que para esta definición, la esperanza de la función de perdida de $h$ es sobre los datos de $z$ muestrados aleatoriamente de acuerdo con la distribucción $\mathcal{D}$. Similarmente , el <strong>riesgo empírico</strong> es la perdida esperada sobre un muestra de datos  $S = (s_i)_{i \in[m]}$, es decir:</p>
+<p>\begin{equation}\tag{2}
+L_{in}(h) = \frac{1}{m}\sum_{i=1}^{m}\mathcal{L}_{in}(h, z_i).
 \end{equation}</p>
-<p>De esta forma se está asegurando el <em>buen comportamiento</em> de $f_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio en su interior, el <strong>sobreentrenamiento</strong>. En la práctica es posible encontrar modelos en donde el error empírico es cero, $L_{in}(f) = 0$ y al perdida fuera de la muestra es $\mathcal{L}_{out}(f) \neq 0$ para todo $z_i\in Z \setminus S$; un modelo con estas características carece de <em>la capacidad de generalizar</em>. Este es un error frecuente, que ocurre con frecuencia cuando solo se utiliza un solo conjunto de datos para entrenar el algoritmo. Para evitar esto, es usual dividir el conjunto $S$ en dos, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su <em>capacidad de generalizar</em>. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos.</p>
+<p>No olvidemos que todo lo que estamos estudiando es con el objetivo de encontrar un modelo $h\in mathcal{H}$ con un buen <em>performance</em>, con los conceptos que tenemos ahora de función de riesgo y riesgo empírico, la camino será que para una muestra de datos $S = (s_i)_{i \in[m]}$ y un conjunto de hipótesis $\mathcal{H}$, encontrar un modelo $h_s\in \mathcal{H}$ tal que:</p>
+<p>\begin{equation}\tag{3}
+h_s \in \operatorname*{argmin}_{h\in \mathcal{H}} L_{in}(h).
+\end{equation}</p>
+<p>De esta forma se estará asegurando el <em>buen comportamiento</em> de $h_{s}$ en $S$. Sin embargo, esta estrategía encierra un detalle con un gran demonio en su interior, el <strong>sobreentrenamiento</strong>. En la práctica es posible encontrar modelos en donde el riesgo empírico es cero, $L_{in}(h) = 0$ y al perdida fuera de la muestra es $\mathcal{L}_{out}(h) \neq 0$ para todo $z_i\in Z \setminus S$; un modelo con estas características carece de <em>la capacidad de generalizar</em>. Este es un error frecuente, que ocurre con frecuencia cuando solo se utiliza un solo conjunto de datos para entrenar el algoritmo. Para evitar esto, es usual dividir el conjunto $S$ en dos, un conjunto para realizar el entrenamiento del algoritmo y el otro para medir su <em>capacidad de generalizar</em>. El objetivo es que el modelo encontrado tenga un comportamiento similar en ambos conjuntos.</p>
 <p>¿Cómo garantizar <em>la capacidad de generalizar</em>? Como hemos visto, aquí hay un problema complejo, que en primer lugar consiste en hacer la elección adecuada de un conjunto de hipótesis $\mathcal{H}$, de manera que para cualquier $\epsilon &gt; 0$ exista una muestra $S$ que garantice que:
 \begin{equation}
-\forall h\in \mathcal{H}, \; \;|L_{in}(f) - L_{out}(f)| \leq \epsilon.
+\forall h\in \mathcal{H}, \; \;|L_{in}(h) - L_{D}(h)| \leq \epsilon.
 \end{equation}
-Una vez se ha identificado la clase de hipotesis adecuada, $\mathcal{H}$, debemos en segundo lugar, encontrar la hipótesis $f$ en $\mathcal{H}$ que satisface la ecuación (1). Si se logra conseguir un modelo con estas características, podremos decir, que nuestros modelo que tiene <em>la capacidad de generalizar</em> y tiene <em>buen comportamiento</em>.</p>
+Una vez se ha identificado la clase de hipotesis adecuada, $\mathcal{H}$, debemos en segundo lugar, encontrar la hipótesis $h$ en $\mathcal{H}$ que satisface la ecuación (3). Si se logra conseguir un modelo con estas características, podremos decir, que nuestros modelo que tiene <em>la capacidad de generalizar</em> y tiene <em>buen comportamiento</em>.</p>
 <h2 id="tareas-de-predicción-y-clasificación">Tareas de predicción y clasificación</h2>
 <p>El anterior modelos se puede aplicar a una amplía variedad de tareas de aprendizaje. Veamos algunos ejemplos.</p>
 <p><strong>Clasificación Multiclase</strong>. Consideremos la tarea de clasificar documentos. Nuestro deseo es diseñar un programa con la capacidad para clasificar una colección de documentos, de acuerdo a diferentes tópicos (e.g., noticias, deportes, biología, medicina). Un algoritmo de aprendizaje para esta tarea debería tener acceso a una colección de documentos correctamente clasificados, $S$, y con base a estos ejemplos, debería entregar una programa (modelo) que puede tomar un nuevo documentos y clasificarlo. Aquí el <strong>conjunto de dominio</strong>, $\mathcal{X}$, es el conjunto de todos los posibles documentos. Es importante señalar, que los documentos debería ser representando por un conjunto de características que podría incluir el número de palabras diferentes en el documentos, el tamaño del documentos, el autor, el origin, etc. El <strong>conjunto de etiquetas</strong>, $\mathcal{Y}$ es el conjunto de todos los posibles tópicos (en este caso, debería ser algún conjunto finito). Una vez hemos identificado nuestros conjuntos de dominio y etiquetas, el otro componente que hace falta es determina una función de perdida adecuada para medir el <em>perfomance</em> de nuestro algoritmo.</p>
-<p>En el caso de la clasificación binaría, una buena función de perdida es:</p>
+<p>En este caso sobre la variable aleatoria $z$ con rango en $\mathcal{X}\times \mathcal{Y}$ se puede considerar la siguiente función de perdida:</p>
 <p>\begin{equation}
 \mathcal{L}_{0-1}(h, (x, y)) = \begin{cases}
 0 \mbox{ si } h(x) = y \newline \newline
 1 \mbox{ si } h(x)\neq y
 \end{cases}
 \end{equation}</p>
-<p>Una <strong>tarea de predicción</strong>, se pude definir a partir de un conjunto de entrenamiento $S = (x_i, y_i)_{i\in[m]}$ que consiste de una entrada de características $x_i\in \mathcal{X}$ y una etiqueta correspondiente $y_i\in \mathcal{Y}$. En el caso de una regresión 1 - dimensional, con $\mathcal{Y} \subset \mathbb{R}$, la función de perdida se define como $\mathcal{L}(f, (x, y)) = (f(x) - y)^2$ y, para una <strong>tarea de clasificación</strong> binaria con $\mathcal{Y} = \{-1, 1\}$, la función de perdida es $\mathcal{L}(f, (x, y)) = 1_{(-\infty, 0)}(yf(x)).$ Nosotros estamos asumiendo por ahora que las características están en un espacio Euclidiano, es decir, $\mathcal{X}\subset \mathbb{R}^{d}$ en donde $d\in \mathbb{N}$</p>
+<p>Esta función se usa en problemas de clasificación binaria o multiclase.</p>
+<p><strong>Regresión</strong>. En esta tarea, el objetivo es encontrar algún patrón simple en los datos -una relación funcional entre los componentes de los datos $\mathcal{X}$ y $\mathcal{Y}$-. Por ejemplo, encontrar la mejor función que predice el peso de nacimiento de un bebe en relación con las medidas obtenidas por ultrasonido del diámetro de su cabeza, el diámetro abdominal y la longitud de su femur. Aquí el dominio es algún subconjunto de $\mathbb{R}^{3}$ (las tres medidas obtenidas por el ultrasonido) y el conjunto de etiquedas de $\mathcal{Y}$ es el conjunto de los números reales (el peso en gramos). En este contexto  es más adecuado llamar a $\mathcal{Y}$ como el conjunto objetivo. En este caso el conjunto de entrenamiento es igual que antes, un subconjunto $S\subseteq \mathcal{X}\times \mathcal{Y}$. Sin embargo, la medida de éxito es diferente. En este ejemplo, se podría evaluar la calidad de la hipótesis $h:\mathcal{X}\to \mathcal{Y}$ por el valor esperado del cuadrado de la diferencia entre las etiquetas correctas y su predicción, es decir:</p>
+<p>\begin{equation}
+L_{D}(h) = \mathbb{E}_{z\sim \mathcal{D}}[(h(x)-y)^2].
+\end{equation}</p>
+<p>En otras entradas veremos otras funciones de perdidas utilizadas en tareas de regresión.</p>
 <p><a href="url">Siguiente entrada</a></p>
 <h2 id="referencias">Referencias</h2>
 <ol>
@@ -409,7 +419,7 @@ Una vez se ha identificado la clase de hipotesis adecuada, $\mathcal{H}$, debemo
                                 Una breve introducción al problema del aprendizaje a partir de los datos.
                             </p>
                             <div class="article-metadata">
-                                July 12, 2021 · 6 min read
+                                July 12, 2021 · 7 min read
                             </div>
                         </div>
                     </div>
