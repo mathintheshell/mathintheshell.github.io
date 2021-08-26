@@ -368,9 +368,17 @@ Una vez se ha identificado la clase de hipótesis adecuada, $\mathcal{H}$, debem
 \mathcal{L}(h, (x,y)) = (h(x)-y)^2.
 \end{equation}</p>
 <p>En futuras publicaciones veremos otras funciones de perdidas utilizadas en tareas de regresión.</p>
-<p><strong>Otras tareas</strong>. A parte de las tareas de clasificación y regresión, que usualmente se clasifican como tareas de <strong>aprendizaje supervisado</strong>, las tareas de <strong>aprendizaje no supervisado</strong> y <strong>aprendizaje semisupervisado</strong> se suele estudiar como tareas de predicción. Más precisamente, el conjunto sin etiquetas $z_{i}$ se transforma en un conjunto de características $x_{i} = T_{1}(z_{i})\in \mathcal{X}$ y en conjunto de etiquetas $y_{i}=T_{2}(z_i)\in \mathcal{Y}$ usando un par de transformaciones $T_{1}:\mathcal{Z}\to \mathcal{X}$, $T_{2}:\mathcal{Z}\to\mathcal{Y}$. Una vez se ha hecho esto, el objetivo es investigar un modelo $f_{s}$ que se aproxime a la transformación $T_{2}\circ T_{1}^{-1}:\mathcal{X}\to \mathcal{Y}$.</p>
 <h2 id="cómo-aprenden-las-maquinas">¿Cómo aprenden las maquinas?</h2>
-<h2 id="aprendizaje-agnóstico-correcto-probablemente-aproximado">Aprendizaje agnóstico correcto probablemente aproximado</h2>
+<p>Cómo vimos anteriormente, el problema del aprendizaje involucra la elección de un conjunto de hipótesis $\mathcal{H}$ y la busqueda de la hipótesis $h_{s}$ tal que:
+\begin{equation}
+h_s \in \operatorname*{argmin}_{h\in \mathcal{H}} L_{S}(h).
+\end{equation}
+En otra palabras, el problema se reduce a un problema de optimización del riesgo empírico $\mathcal{L}_{S}(h)$. Y existen amplia variedad de algoritmos de optimización de funciones, en particular para estas tareas el algoritmo por excelencia es el algoritmo del descenso del gradiente, este consiste en general en realizar la siguiente iteración
+\begin{equation}
+h \leftarrow h - \lambda \nabla L_{D}(h)
+\end{equation}
+para encontrar una hipótesis $h_s$. Por otro lado este es un proceso que puede ser automatizable en casi cualquier computadora en el planeta. Así que cualquier maquina con la capacidad para realizar este tipo de iteración, estaría en la capacidad de aprender a clasificar y predecir a partir del aprendizaje de los datos. Sin embargo, ese indicarle a la computadora cómo debe aprender, para esto se debe programar una serie de ordenes en las que se le indica como optimizar las diferentes funciones de perdida, según la tarea de aprendizaje que le deseamos enseñar, una vez el algoritmos se haya ejecutado, la computadora podría estar en la capacidad de clasificar y predecir, obviamente esto no es una tarea sencilla, pero no es imposible.</p>
+<p>Dejaré por el momento esta publicación hasta aquí, para no hacerla más extensa, espero que la hayan disfrutado y aprendido mucho. Nos vemos pronto.</p>
 <p><a href="url">Siguiente entrada</a></p>
 <h2 id="referencias">Referencias</h2>
 <ol>
@@ -385,7 +393,6 @@ Una vez se ha identificado la clase de hipótesis adecuada, $\mathcal{H}$, debem
     <li><a href="#el-problema-del-aprendizaje">El problema del aprendizaje</a></li>
     <li><a href="#tareas-de-predicción-y-clasificación">Tareas de predicción y clasificación</a></li>
     <li><a href="#cómo-aprenden-las-maquinas">¿Cómo aprenden las maquinas?</a></li>
-    <li><a href="#aprendizaje-agnóstico-correcto-probablemente-aproximado">Aprendizaje agnóstico correcto probablemente aproximado</a></li>
     <li><a href="#referencias">Referencias</a></li>
   </ul>
 </nav>
